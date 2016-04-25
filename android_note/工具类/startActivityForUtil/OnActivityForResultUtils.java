@@ -1,15 +1,19 @@
-   
-#抽离Activity中的startActivityForResult
-##回调
-``` java
-public interface OnActivityForResultCallback {
-    void result(Integer resultCode, Intent data);
-    void success(Integer resultCode, Intent data);
-    void cancel(Intent data);
-}
-```
-##工具类OnActivityForResultUtils
-``` java
+package com.dajia.mobile.android.framework.component.onActivityForResult;
+
+import android.app.Activity;
+import android.content.Intent;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * OnActivityForResultUtils
+ * 支持Android的OnActivityForResult方法
+ * @author hewanxian
+ * @date 16/4/5
+ * Copyright © 2016年 branch.6.3.0.portal.3.2.AppBox.TabStyle. All rights reserved.
+ */
 public class OnActivityForResultUtils {
     public static Map<Integer, List<OnActivityForResultCallback>> resultMap = new HashMap<Integer, List<OnActivityForResultCallback>>();
 
@@ -37,21 +41,3 @@ public class OnActivityForResultUtils {
         }
     }
 }
-
-
-```
-##简单回调实现
-```
-public abstract class SimpleOnActivityForResultCallback implements OnActivityForResultCallback {
-    @Override
-    public void result(Integer resultCode, Intent data) {
-
-    }
-
-    @Override
-    public void cancel(Intent data) {
-
-    }
-}
-
-```
